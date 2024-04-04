@@ -1,0 +1,32 @@
+.container {
+    margin: 3rem 0;
+    text-align: center;
+}
+.container h1{
+    color: #8630fe;
+    margin-bottom: 1.25rem;
+}
+.container p {
+    color: rgb(102, 102, 102);
+}
+.container a {
+    text-decoration: none;
+    color: #8630fe;
+    background-color: #e9dafe;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.5rem ;
+    -webkit-border-radius: 0.5rem ;
+    -moz-border-radius: 0.5rem ;
+    -ms-border-radius: 0.5rem ;
+    -o-border-radius: 0.5rem ;
+    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -ms-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+}
+.container a:hover {
+    color: #e9dafe;
+    background-color: #8630fe;
+
+}
