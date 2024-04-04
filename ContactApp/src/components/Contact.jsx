@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { v4 } from "uuid";
 
 import ContactsList from "./ContactsList";
+import inputs from "../constants/inputs";
 
 function Contact() {
     const [contacts, setContacts] = useState([]);
     const [alert, setAlert] = useState("");
     const [contact, setContact] = useState({
+        id:"",
         name:"",
         lastName:"",
         email:"",
@@ -30,8 +33,10 @@ function Contact() {
             return;
         }
         setAlert("");
-        setContacts((contacts) => [...contacts, contact]);
+        const newContact = { ...contact , id : v4()};
+        setContacts((contacts) => [...contacts, newContact]);
         setContact({
+            id: "",
             name:"",
             lastName:"",
             email:"",
@@ -43,7 +48,20 @@ function Contact() {
   return (
     <>
     <div>
-        <input
+        {
+            inputs.map(input => (
+            <input
+            key={input.index}
+            type={input.type}
+            name={input.name}
+            placeholder={input.placeholder}
+            value={contact[input.name]}
+            onChange={changeHandler}
+            autoComplete="off"
+            />))
+        }
+        {/*up is shortcut of down */}
+        {/* <input
         type="text"
         placeholder="Name"
         name="name"
@@ -73,7 +91,7 @@ function Contact() {
         name="phone"
         value={contact.phone}
         onChange={changeHandler}
-        autoComplete="off" />
+        autoComplete="off" /> */}
 
         <button onClick={addHandler}>Add contact</button>
     </div>

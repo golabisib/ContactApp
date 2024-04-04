@@ -1,5 +1,6 @@
-import Header from "./components/Header"
-import Contact from "./components/contact"
+import Header from "./components/Header.jsx"
+import Contact from "./components/contact.jsx"
+
 
 function App() {
 
