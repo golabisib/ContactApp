@@ -5,7 +5,7 @@ function Header() {
     <div className={styles.container}>
         <h1>Contact App</h1>
         <p>
-            <a href="https://github.com/golabisib">Golabisib</a> | React.js Full Course
+            <a href="https://github.com/golabisib">Golabisib</a> | Roozbeh Rigi Jangjo
         </p>
     </div>
   )
