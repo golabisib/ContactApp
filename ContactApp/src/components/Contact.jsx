@@ -5,8 +5,9 @@ import ContactsList from "./ContactsList";
 import inputs from "../constants/inputs";
 
 function Contact() {
-    const [contacts, setContacts] = useState([]);
-    const [alert, setAlert] = useState("");
+    const [contacts, setContacts] = useState([]);{/*یک آرایه خالی برای لیست کانتکت ها در نظر میگیریم */}
+    const [alert, setAlert] = useState("");{/*یک رشته خالی برای هشدار در نظر میگیریم */}
+    {/*یک آبجکت خالی برای ورودی ها در نظر میگیریم که مقدار آی دی با استفاده از یونیک آیدی مشخص میشود */}
     const [contact, setContact] = useState({
         id:"",
         name:"",
@@ -14,7 +15,6 @@ function Contact() {
         email:"",
         phone:""
     });
-
     const changeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -22,13 +22,13 @@ function Contact() {
         setContact((contact) => ({...contact , [name] : value}))
     };
 
-
     const addHandler = () => {
         if(
-            !contact.name
-            || !contact.lastName
-            || !contact.email
-            || !contact.phone){
+            !contact.name ||
+            !contact.lastName ||
+            !contact.email ||
+            !contact.phone
+            ){
             setAlert ("Please enter valid data!")
             return;
         }
@@ -44,10 +44,15 @@ function Contact() {
         })
     };
 
+    const deleteHandler = (id) => {
+        const newContacts = contacts.filter((contact) => contact.id !== id);
+        setContacts(newContacts)
+    }
 
-  return (
+    return (
     <>
     <div>
+        {/*inputs part : */}
         {
             inputs.map(input => (
             <input
@@ -60,43 +65,12 @@ function Contact() {
             autoComplete="off"
             />))
         }
-        {/*up is shortcut of down */}
-        {/* <input
-        type="text"
-        placeholder="Name"
-        name="name"
-        value={contact.name}
-        onChange={changeHandler}
-        autoComplete="off" />
-
-        <input
-        type="text"
-        placeholder="Last Name"
-        name="lastName"
-        value={contact.lastName}
-        onChange={changeHandler}
-        autoComplete="off" />
-
-        <input
-        type="email"
-        placeholder="Email"
-        name="email"
-        value={contact.email}
-        onChange={changeHandler}
-        autoComplete="off" />
-
-        <input
-        type="number"
-        placeholder="Phone Number"
-        name="phone"
-        value={contact.phone}
-        onChange={changeHandler}
-        autoComplete="off" /> */}
-
         <button onClick={addHandler}>Add contact</button>
     </div>
+    {/*Alert part : */}
         <div>{alert && <p>{alert}</p>}</div>
-        <ContactsList contacts={contacts} />
+    {/*contacts list part: */}
+        <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </>
   )
 }
