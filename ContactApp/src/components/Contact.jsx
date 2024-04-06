@@ -12,9 +12,9 @@ function Contact() {
         name:"Roozbeh",
         lastName:"Rigi Jangjo",
         email:"SilentRoozbeh@gmail.com",
-        phone:"09024995222"}]);{/*یک آرایه خالی برای لیست کانتکت ها در نظر میگیریم.ولی من اطلاعات خودمو به عنوان پیشفرض قرار دادم */}
-    const [alert, setAlert] = useState("");{/*یک رشته خالی برای هشدار در نظر میگیریم */}
-    {/*یک آبجکت خالی برای ورودی ها در نظر میگیریم که مقدار آی دی با استفاده از یونیک آیدی مشخص میشود */}
+        phone:"09024995222"}]);{/*We consider an empty array for the list of contacts, but I put my information as default.*/}
+    const [alert, setAlert] = useState("");{/*We consider an empty string for warning */}
+    {/*We consider an empty object for inputs, whose ID value is determined using a unique ID*/}
     const [contact, setContact] = useState({
         id:"",
         name:"",
